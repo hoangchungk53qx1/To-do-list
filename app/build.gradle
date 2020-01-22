@@ -1,0 +1,46 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
+    defaultConfig {
+        applicationId "com.darkpingouin.todolist"
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+lintOptions {
+         abortOnError false
+    }
+    buildTypes {
+//    applicationVariants.all { variant ->
+//        variant.outputs.each { output ->
+//            output.outputFile = file("$project.buildDir/apk/todolist.apk")
+//          //  'C:\My_Project_Android\To-Do-List-Android-App\app\build.gradle'
+//
+//        }
+//    }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('androidx.test.espresso:espresso-core:3.1.0', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'com.google.android.material:material:1.0.0'
+    testCompile 'junit:junit:4.12'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation "com.daimajia.swipelayout:library:1.2.0@aar"
+    implementation 'petrov.kristiyan.colorpicker:colorpicker-library:1.1.2'
+//    implementation 'com.google.android.gms:play-services-appindexing:9.8.0'
+}
+
